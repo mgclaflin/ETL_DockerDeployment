@@ -59,7 +59,7 @@ x-airflow-common:
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
@@ -284,5 +284,32 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+
+  db:
+    container_name: postgres_weather_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: weather_user
+      POSTGRES_PASSWORD: weather_user
+      POSTGRES_DB: weather
+    volumes:
+      - ../db/schema.sql:/docker-entrypoint-initdb.d/schema.sql  # Reference to the parent folder
+      - pg_data:/var/lib/postgresql/data  # Optional: to persist database data
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+
+
 volumes:
   postgres-db-volume:
+  pg_data:

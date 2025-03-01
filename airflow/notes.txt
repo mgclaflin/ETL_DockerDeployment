@@ -8,7 +8,7 @@ mkdir -p ./dags ./logs ./plugins ./config
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 
 -- next step is to run this command to initiate airflow
-docker compose up airflow-init
+docker-compose up airflow-init
 
 --then use this command to run airflow
-docker compose up
+docker-compose up
