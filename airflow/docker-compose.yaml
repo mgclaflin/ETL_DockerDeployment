@@ -236,6 +236,14 @@ services:
         fi
         mkdir -p /sources/logs /sources/dags /sources/plugins
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+        # Add the connection to the PostgreSQL database for weather
+        airflow connections add 'postgres_weather_conn' \
+          --conn-type 'Postgres' \
+          --conn-host 'postgres_weather_container' \
+          --conn-schema 'weather' \
+          --conn-login 'weather_user' \
+          --conn-password 'weather_user' \
+          --conn-port '5432'
         exec /entrypoint airflow version
     # yamllint enable rule:line-length
     environment:
