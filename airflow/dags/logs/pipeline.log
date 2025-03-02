@@ -1,0 +1,60 @@
+2025-03-02 08:38:25,638 - INFO - Logger initialized successfully.
+2025-03-02 08:38:25,639 - INFO - Successfully loaded API_KEY
+2025-03-02 08:38:25,640 - INFO - Successfully loaded 3 cities.
+2025-03-02 08:38:25,692 - INFO - Retrieved coordinate for Denver,CO,USA: (39.7392, -104.9847)
+2025-03-02 08:38:25,775 - INFO - Retrieved coordinate for Austin,TX,USA: (30.2711, -97.7437)
+2025-03-02 08:38:25,814 - INFO - Retrieved coordinate for Stuttgart,DE: (48.7823, 9.177)
+2025-03-02 08:38:25,856 - INFO - Successfully wrote city encodings to cities_config.json
+2025-03-02 08:40:14,713 - INFO - Logger initialized successfully.
+2025-03-02 08:40:14,714 - INFO - Successfully loaded API_KEY
+2025-03-02 08:40:14,714 - INFO - Successfully loaded 3 cities.
+2025-03-02 08:40:14,760 - INFO - Retrieved coordinate for Denver,CO,USA: (39.7392, -104.9847)
+2025-03-02 08:40:14,802 - INFO - Retrieved coordinate for Austin,TX,USA: (30.2711, -97.7437)
+2025-03-02 08:40:14,839 - INFO - Retrieved coordinate for Stuttgart,DE: (48.7823, 9.177)
+2025-03-02 08:40:14,845 - INFO - Successfully wrote city encodings to cities_config.json
+2025-03-02 08:41:54,309 - INFO - Logger initialized successfully.
+2025-03-02 08:41:54,309 - INFO - Successfully loaded API key
+2025-03-02 08:41:54,379 - INFO - Successfully fetched weather data for Denver,CO,USA
+2025-03-02 08:41:54,380 - INFO - Successfully loaded API key
+2025-03-02 08:41:54,447 - INFO - Successfully fetched weather data for Austin,TX,USA
+2025-03-02 08:41:54,448 - INFO - Successfully loaded API key
+2025-03-02 08:41:54,529 - INFO - Successfully fetched weather data for Stuttgart,DE
+2025-03-02 08:41:54,530 - CRITICAL - Pipeline extraction failed at extract.py: name 'RAW_FILE_PATH' is not defined
+2025-03-02 08:43:33,036 - INFO - Logger initialized successfully.
+2025-03-02 08:43:33,037 - INFO - Successfully loaded API key
+2025-03-02 08:43:33,128 - INFO - Successfully fetched weather data for Denver,CO,USA
+2025-03-02 08:43:33,128 - INFO - Successfully loaded API key
+2025-03-02 08:43:33,201 - INFO - Successfully fetched weather data for Austin,TX,USA
+2025-03-02 08:43:33,201 - INFO - Successfully loaded API key
+2025-03-02 08:43:33,285 - INFO - Successfully fetched weather data for Stuttgart,DE
+2025-03-02 08:43:33,286 - CRITICAL - Pipeline extraction failed at extract.py: name 'RAW_FILE_PATH' is not defined
+2025-03-02 08:49:00,818 - INFO - Logger initialized successfully.
+2025-03-02 08:49:00,820 - INFO - Successfully loaded API key
+2025-03-02 08:49:00,909 - INFO - Successfully fetched weather data for Denver,CO,USA
+2025-03-02 08:49:00,910 - INFO - Successfully loaded API key
+2025-03-02 08:49:00,995 - INFO - Successfully fetched weather data for Austin,TX,USA
+2025-03-02 08:49:00,996 - INFO - Successfully loaded API key
+2025-03-02 08:49:01,073 - INFO - Successfully fetched weather data for Stuttgart,DE
+2025-03-02 08:49:01,074 - INFO - Weather data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_weather_data.json
+2025-03-02 08:49:01,074 - INFO - Weather data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_compiled_data.json
+2025-03-02 08:49:38,022 - INFO - Logger initialized successfully.
+2025-03-02 08:49:38,023 - ERROR - Error: the file /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv does not exist
+2025-03-02 08:50:44,180 - INFO - Logger initialized successfully.
+2025-03-02 08:50:44,181 - ERROR - Error: the file /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv does not exist
+2025-03-02 08:51:31,771 - INFO - Logger initialized successfully.
+2025-03-02 08:51:31,771 - INFO - Successfully loaded raw weather data from /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_weather_data.json
+2025-03-02 08:51:31,778 - INFO - Successfully transformed weather data into DataFrame
+2025-03-02 08:51:31,786 - INFO - Data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv
+2025-03-02 08:53:27,605 - INFO - Logger initialized successfully.
+2025-03-02 08:53:27,605 - INFO - Successfully loaded raw weather data from /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_weather_data.json
+2025-03-02 08:53:27,608 - INFO - Successfully transformed weather data into DataFrame
+2025-03-02 08:53:27,809 - INFO - Data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv
+2025-03-02 08:53:38,652 - INFO - Logger initialized successfully.
+2025-03-02 08:53:38,652 - INFO - Successfully loaded raw weather data from /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_weather_data.json
+2025-03-02 08:53:38,654 - INFO - Successfully transformed weather data into DataFrame
+2025-03-02 08:53:38,672 - INFO - Data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv
+2025-03-02 08:54:11,237 - INFO - Logger initialized successfully.
+2025-03-02 08:54:11,240 - INFO - Successfully loaded clean data from /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv
+2025-03-02 08:54:11,258 - ERROR - Database connection error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+

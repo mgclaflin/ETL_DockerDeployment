@@ -1,0 +1,21 @@
+2025-03-02 08:25:55,163 - INFO - Logger initialized successfully.
+2025-03-02 08:25:55,163 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:25:55,163 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables
+2025-03-02 08:26:49,363 - INFO - Logger initialized successfully.
+2025-03-02 08:26:49,363 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:26:49,363 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables
+2025-03-02 08:28:42,554 - INFO - Logger initialized successfully.
+2025-03-02 08:28:42,554 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:28:42,554 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables
+2025-03-02 08:30:11,119 - INFO - Logger initialized successfully.
+2025-03-02 08:30:11,119 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:30:11,120 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables
+2025-03-02 08:30:46,332 - INFO - Logger initialized successfully.
+2025-03-02 08:30:46,332 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:30:46,332 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables
+2025-03-02 08:31:18,363 - INFO - Logger initialized successfully.
+2025-03-02 08:31:18,364 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:31:18,364 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables
+2025-03-02 08:31:51,985 - INFO - Logger initialized successfully.
+2025-03-02 08:31:51,993 - ERROR - Error loading API_KEY: API_KEY is missing in the environment variables
+2025-03-02 08:31:51,993 - CRITICAL - Pipeline execution failed at encodings: API_KEY is missing in the environment variables

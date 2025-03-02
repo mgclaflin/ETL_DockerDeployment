@@ -1,3 +1,6 @@
+--update config.py file to the current directory
+
+
 https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
 
 --fetching docker-compose.yaml

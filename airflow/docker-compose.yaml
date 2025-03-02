@@ -238,7 +238,7 @@ services:
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
         # Add the connection to the PostgreSQL database for weather
         airflow connections add 'postgres_weather_conn' \
-          --conn-type 'Postgres' \
+          --conn-type 'postgres' \
           --conn-host 'postgres_weather_container' \
           --conn-schema 'weather' \
           --conn-login 'weather_user' \
