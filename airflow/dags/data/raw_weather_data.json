@@ -89,5 +89,109 @@
             ]
         },
         "City": "Stuttgart,DE"
+    },
+    {
+        "lat": 39.7392,
+        "lon": -104.9847,
+        "timezone": "America/Denver",
+        "timezone_offset": -25200,
+        "current": {
+            "dt": 1741187022,
+            "sunrise": 1741181206,
+            "sunset": 1741222575,
+            "temp": 30.6,
+            "feels_like": 30.6,
+            "pressure": 1018,
+            "humidity": 70,
+            "dew_point": 22.96,
+            "uvi": 0.74,
+            "clouds": 71,
+            "visibility": 10000,
+            "wind_speed": 1.99,
+            "wind_deg": 225,
+            "wind_gust": 7,
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "broken clouds",
+                    "icon": "04d"
+                }
+            ]
+        },
+        "City": "Denver,CO,USA"
+    },
+    {
+        "lat": 30.2711,
+        "lon": -97.7437,
+        "timezone": "America/Chicago",
+        "timezone_offset": -21600,
+        "current": {
+            "dt": 1741187022,
+            "sunrise": 1741179147,
+            "sunset": 1741221158,
+            "temp": 53.94,
+            "feels_like": 51.1,
+            "pressure": 1021,
+            "humidity": 44,
+            "dew_point": 32.56,
+            "uvi": 1.9,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 13,
+            "wind_deg": 320,
+            "wind_gust": 13,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ]
+        },
+        "City": "Austin,TX,USA"
+    },
+    {
+        "lat": 48.7823,
+        "lon": 9.177,
+        "timezone": "Europe/Berlin",
+        "timezone_offset": 3600,
+        "current": {
+            "dt": 1741187022,
+            "sunrise": 1741154242,
+            "sunset": 1741194750,
+            "temp": 61.63,
+            "feels_like": 59.14,
+            "pressure": 1024,
+            "humidity": 35,
+            "dew_point": 33.75,
+            "uvi": 0.71,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 3.44,
+            "wind_deg": 40,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ]
+        },
+        "alerts": [
+            {
+                "sender_name": "Deutscher Wetterdienst",
+                "event": "frost",
+                "start": 1741208400,
+                "end": 1741248000,
+                "description": "There is a risk of frost (level 1 of 2).\nMinimum temperature: 0 - -3 \u00b0C; local minimum: in valleys and dips > -6 \u00b0C",
+                "tags": [
+                    "Extreme low temperature"
+                ]
+            }
+        ],
+        "City": "Stuttgart,DE"
     }
 ]

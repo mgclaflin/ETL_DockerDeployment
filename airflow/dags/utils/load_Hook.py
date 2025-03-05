@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import psycopg2
 from airflow.providers.postgres.hooks.postgres import PostgresHook
-from airflow.hooks.base_hook import BaseHook
+from airflow.hooks.base import BaseHook
 from dotenv import load_dotenv
 from logger import logger
 from config import ENV_PATH, RAW_DATA_PATH, CLEAN_DATA_PATH  # Import paths
@@ -25,11 +25,15 @@ def read_clean_data():
 
 # function to load env variables & establish database connection
 def env_db_connection():
+    print("\n")
+    print("Trying to connect with postgres_hook")
     try:
         postgres_hook = PostgresHook(postgres_conn_id='postgres_weather_conn')
         conn = postgres_hook.get_conn()
         return conn
     except Exception as e:
+        print("there was an error connecting to the connection/db \n")
+        print(e)
         logger.error(f"Error connecting to database: {e}")
         return None
         
@@ -141,6 +145,8 @@ def delete_raw_data():
             logger.info(f"File {RAW_DATA_PATH} does not exisit")
     except Exception as e:
         logger.error(f"Error deleting file {RAW_DATA_PATH}: {e}")
+
+
 
 
 # execution of functions above and the load process

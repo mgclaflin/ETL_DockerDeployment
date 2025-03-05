@@ -58,3 +58,24 @@
 2025-03-02 08:54:11,258 - ERROR - Database connection error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory
 	Is the server running locally and accepting connections on that socket?
 
+2025-03-05 15:03:42,148 - INFO - Logger initialized successfully.
+2025-03-05 15:03:42,152 - INFO - Successfully loaded API key
+2025-03-05 15:03:42,251 - INFO - Successfully fetched weather data for Denver,CO,USA
+2025-03-05 15:03:42,252 - INFO - Successfully loaded API key
+2025-03-05 15:03:42,326 - INFO - Successfully fetched weather data for Austin,TX,USA
+2025-03-05 15:03:42,327 - INFO - Successfully loaded API key
+2025-03-05 15:03:42,420 - INFO - Successfully fetched weather data for Stuttgart,DE
+2025-03-05 15:03:42,430 - INFO - Weather data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_weather_data.json
+2025-03-05 15:03:42,430 - INFO - Weather data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_compiled_data.json
+2025-03-05 15:03:54,731 - INFO - Logger initialized successfully.
+2025-03-05 15:03:54,732 - INFO - Successfully loaded raw weather data from /workspaces/ETL_DockerDeployment/airflow/dags/data/raw_weather_data.json
+2025-03-05 15:03:54,742 - INFO - Successfully transformed weather data into DataFrame
+2025-03-05 15:03:54,835 - INFO - Data successfully saved to /workspaces/ETL_DockerDeployment/airflow/dags/data/clean_weather_data.csv
+2025-03-05 15:35:50,174 - INFO - Logger initialized successfully.
+2025-03-05 15:39:22,660 - INFO - Logger initialized successfully.
+2025-03-05 15:39:22,661 - INFO - Successfully loaded API_KEY
+2025-03-05 15:39:22,662 - INFO - Successfully loaded 3 cities.
+2025-03-05 15:39:22,722 - INFO - Retrieved coordinate for Denver,CO,USA: (39.7392, -104.9847)
+2025-03-05 15:39:22,770 - INFO - Retrieved coordinate for Austin,TX,USA: (30.2711, -97.7437)
+2025-03-05 15:39:22,805 - INFO - Retrieved coordinate for Stuttgart,DE: (48.7823, 9.177)
+2025-03-05 15:39:22,830 - INFO - Successfully wrote city encodings to cities_config.json

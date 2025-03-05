@@ -25,14 +25,6 @@ def test_postgres_connection():
     cursor.close()
     connection.close()
 
-# Define the DAG
-dag = DAG(
-    'test_postgres_connection',
-    description='Test connection to PostgreSQL container',
-    schedule_interval=None,  # Trigger manually for testing
-    start_date=datetime(2025, 3, 1),
-    catchup=False,
-)
 
 # Add PostgreSQL connection programmatically (if not already set in Airflow UI)
 def add_postgres_connection():
@@ -60,6 +52,17 @@ def add_postgres_connection():
         )
         new_conn.set_upstream(None)
         new_conn.save()
+
+
+# Define the DAG
+dag = DAG(
+    'test_postgres_connection',
+    description='Test connection to PostgreSQL container',
+    schedule_interval=None,  # Trigger manually for testing
+    start_date=datetime(2025, 3, 1),
+    catchup=False,
+)
+
 
 # Add the connection before running the tasks
 add_postgres_connection()

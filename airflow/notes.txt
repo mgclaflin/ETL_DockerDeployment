@@ -14,4 +14,4 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 docker-compose up airflow-init
 
 --then use this command to run airflow
-docker-compose up
+docker-compose up -d

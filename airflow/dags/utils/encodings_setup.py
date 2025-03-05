@@ -6,12 +6,11 @@ import pandas as pd
 import requests
 import dotenv
 from dotenv import load_dotenv
-from logger import logger
-from config import ENV_PATH, CITIES_CONFIG_PATH  # Import paths
+
 
 
 # loading environment variables (API key)
-def load_env_api():
+def load_env_api(ENV_PATH):
     
     try:
         # load envrionment variables from the .env file
@@ -21,14 +20,14 @@ def load_env_api():
         api_key = os.getenv("API_KEY")
         if not api_key:
             raise ValueError("API_KEY is missing in the environment variables")
-        logger.info("Successfully loaded API_KEY")
+        print("Successfully loaded API_KEY")
         return api_key
     except Exception as e:
-        logger.error(f"Error loading API_KEY: {e}")
+        print(f"Error loading API_KEY: {e}")
         raise
 
 # load list of cities to query the API about
-def load_env_cities():
+def load_env_cities(ENV_PATH):
     
     try:
         # load envrionment variables from the .env file
@@ -39,10 +38,10 @@ def load_env_cities():
         if not cities_str:
             raise ValueError("Cities variable is missing in the env file")
         cities = cities_str.split(";")
-        logger.info(f"Successfully loaded {len(cities)} cities.")
+        print(f"Successfully loaded {len(cities)} cities.")
         return cities
     except Exception as e:
-        logger.error(f"Error loading cities: {e}")
+        print(f"Error loading cities: {e}")
         raise
 
 # getting latitude and longitude encodings for cities (list of cities in config file)
@@ -69,20 +68,20 @@ def encoding(api_key, cities):
                 data = response.json()
                 lat = data['coord']['lat']
                 lon = data['coord']['lon']
-                logger.info(f"Retrieved coordinate for {city}: ({lat}, {lon})")
+                print(f"Retrieved coordinate for {city}: ({lat}, {lon})")
                 print(f"City: {city} - Latitude: {lat}, Longitude: {lon}")
                 new_row = pd.DataFrame({"name": [city], "latitude": [lat], "longitude": [lon]})
                 encodings = pd.concat([encodings, new_row], ignore_index=True)
             else:
                 print(f"Failed to get data for {city}")
-                logger.warning(f"Failed to fetch for data {city}. Status code:{response.status_code}")
-        except requets.exceptions.RequestException as e:
-            logger.error(f"Request error for {city}: {e}")
+                print(f"Failed to fetch for data {city}. Status code:{response.status_code}")
+        except requests.exceptions.RequestException as e:
+            print(f"Request error for {city}: {e}")
             
     return encodings;
 
 ## write the city encodings to the config file
-def encodings_to_config(encodings):
+def encodings_to_config(encodings, CITIES_CONFIG_PATH):
     try:
         # Convert the DataFrame to the desired dictionary format
         config_data = {
@@ -92,16 +91,18 @@ def encodings_to_config(encodings):
         # Write the dictionary to a JSON file
         with open(CITIES_CONFIG_PATH, 'w') as json_file:
             json.dump(config_data, json_file, indent=4)
-        logger.info("Successfully wrote city encodings to cities_config.json")
+        print("Successfully wrote city encodings to cities_config.json")
         print("Data has been written to cities_config.json")
     except:
-        logger.error(f"Error writing to config file: {e}")
+        print(f"Error writing to config file: {e}")
         raise
 
 try:
     # executing the defined functions above 
     print("running encodings_setup.py")
-    api_key = load_env_api()
+    ENV_PATH = os.path.join(BASE_DIR, "utils", ".env")
+    CITIES_CONFIG_PATH = os.path.join(BASE_DIR, "utils", "cities_config.json")
+    api_key = load_env_api(ENV_PATH)
     print("api loading should be correct: "+ api_key)
     cities = load_env_cities()
     print("cities should have loaded")
@@ -109,9 +110,9 @@ try:
     encodings = encoding(api_key, cities)
     print("encodings should have run")
     print(encodings)
-    encodings_to_config(encodings)
+    encodings_to_config(encodings,CITIES_CONFIG_PATH)
     print("should have writtent to the cities config file")
     print("encodings_setup.py file has been executed")
     print("\n")
 except Exception as e:
-    logger.critical(f"Pipeline execution failed at encodings: {e}")
+    print(f"Pipeline execution failed at encodings: {e}")

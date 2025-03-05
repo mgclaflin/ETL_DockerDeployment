@@ -1606,3 +1606,27 @@
 [2025-03-02T09:39:56.730+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:39:56.730+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-03-02T09:39:56.760+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:39:56.760+0000] {dag.py:4180} INFO - Setting next_dagrun for test_postgres_connection to None, run_after=None
 [2025-03-02T09:39:56.794+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/db_connection_test_dag.py took 0.137 seconds
+[2025-03-02T09:40:26.976+0000] {processor.py:186} INFO - Started process (PID=326) to work on /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:40:26.977+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/db_connection_test_dag.py for tasks to queue
+[2025-03-02T09:40:26.979+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:26.979+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:40:27.005+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:27.005+0000] {base.py:84} INFO - Retrieving connection 'postgres_weather_conn'
+[2025-03-02T09:40:27.009+0000] {processor.py:925} INFO - DAG(s) 'test_postgres_connection' retrieved from /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:40:27.028+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:27.028+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-02T09:40:27.045+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:27.044+0000] {dag.py:4180} INFO - Setting next_dagrun for test_postgres_connection to None, run_after=None
+[2025-03-02T09:40:27.063+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/db_connection_test_dag.py took 0.093 seconds
+[2025-03-02T09:40:57.250+0000] {processor.py:186} INFO - Started process (PID=335) to work on /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:40:57.253+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/db_connection_test_dag.py for tasks to queue
+[2025-03-02T09:40:57.264+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:57.263+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:40:57.293+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:57.293+0000] {base.py:84} INFO - Retrieving connection 'postgres_weather_conn'
+[2025-03-02T09:40:57.296+0000] {processor.py:925} INFO - DAG(s) 'test_postgres_connection' retrieved from /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:40:57.313+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:57.313+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-02T09:40:57.340+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:40:57.339+0000] {dag.py:4180} INFO - Setting next_dagrun for test_postgres_connection to None, run_after=None
+[2025-03-02T09:40:57.378+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/db_connection_test_dag.py took 0.140 seconds
+[2025-03-02T09:41:27.621+0000] {processor.py:186} INFO - Started process (PID=344) to work on /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:41:27.622+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/db_connection_test_dag.py for tasks to queue
+[2025-03-02T09:41:27.626+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:41:27.626+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:41:27.654+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:41:27.654+0000] {base.py:84} INFO - Retrieving connection 'postgres_weather_conn'
+[2025-03-02T09:41:27.659+0000] {processor.py:925} INFO - DAG(s) 'test_postgres_connection' retrieved from /opt/airflow/dags/db_connection_test_dag.py
+[2025-03-02T09:41:27.704+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:41:27.703+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-02T09:41:27.725+0000] {logging_mixin.py:190} INFO - [2025-03-02T09:41:27.724+0000] {dag.py:4180} INFO - Setting next_dagrun for test_postgres_connection to None, run_after=None
+[2025-03-02T09:41:27.776+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/db_connection_test_dag.py took 0.161 seconds
