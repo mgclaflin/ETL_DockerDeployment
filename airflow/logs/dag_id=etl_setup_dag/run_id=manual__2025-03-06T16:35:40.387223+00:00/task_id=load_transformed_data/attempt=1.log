@@ -1,0 +1,43 @@
+[2025-03-06T16:35:50.137+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-06T16:35:50.234+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_setup_dag.load_transformed_data manual__2025-03-06T16:35:40.387223+00:00 [queued]>
+[2025-03-06T16:35:50.267+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_setup_dag.load_transformed_data manual__2025-03-06T16:35:40.387223+00:00 [queued]>
+[2025-03-06T16:35:50.268+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-03-06T16:35:50.321+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_transformed_data> on 2025-03-06 16:35:40.387223+00:00
+[2025-03-06T16:35:50.335+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=92) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-06T16:35:50.338+0000] {standard_task_runner.py:72} INFO - Started process 94 to run task
+[2025-03-06T16:35:50.349+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_setup_dag', 'load_transformed_data', 'manual__2025-03-06T16:35:40.387223+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpiroikxnp']
+[2025-03-06T16:35:50.354+0000] {standard_task_runner.py:105} INFO - Job 54: Subtask load_transformed_data
+[2025-03-06T16:35:50.667+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_setup_dag.load_transformed_data manual__2025-03-06T16:35:40.387223+00:00 [running]> on host 255716c1882e
+[2025-03-06T16:35:50.800+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_setup_dag' AIRFLOW_CTX_TASK_ID='load_transformed_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-06T16:35:40.387223+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-06T16:35:40.387223+00:00'
+[2025-03-06T16:35:50.802+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-06T16:35:50.882+0000] {logging_mixin.py:190} INFO - Successfully loaded clean data from /opt/***/dags/data/clean_weather_data.csv
+[2025-03-06T16:35:50.883+0000] {logging_mixin.py:190} INFO - Trying to connect with postgres_hook
+[2025-03-06T16:35:50.917+0000] {base.py:84} INFO - Retrieving connection 'postgres_weather_conn'
+[2025-03-06T16:35:51.767+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:35:51.777+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:35:51.803+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:35:51.803+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:35:51.804+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:35:51.805+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:35:51.806+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:35:51.807+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:35:51.808+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:35:51.809+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:35:51.810+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:35:51.811+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:35:51.821+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:35:51.822+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:35:51.823+0000] {logging_mixin.py:190} INFO - Data successfully inserted into database
+[2025-03-06T16:35:51.824+0000] {logging_mixin.py:190} INFO - database connection closed
+[2025-03-06T16:35:51.825+0000] {logging_mixin.py:190} INFO - File deleted successfully
+[2025-03-06T16:35:51.825+0000] {logging_mixin.py:190} INFO - Error deleting file /opt/***/dags/data/clean_weather_data.csv: 'builtin_function_or_method' object has no attribute 'info'
+[2025-03-06T16:35:51.826+0000] {logging_mixin.py:190} INFO - File deleted successfully
+[2025-03-06T16:35:51.826+0000] {logging_mixin.py:190} INFO - File /opt/***/dags/data/raw_weather_data.json deleted successfully
+[2025-03-06T16:35:51.827+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-06T16:35:51.849+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-06T16:35:51.850+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=etl_setup_dag, task_id=load_transformed_data, run_id=manual__2025-03-06T16:35:40.387223+00:00, execution_date=20250306T163540, start_date=20250306T163550, end_date=20250306T163551
+[2025-03-06T16:35:51.986+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-06T16:35:52.414+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-06T16:35:52.430+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

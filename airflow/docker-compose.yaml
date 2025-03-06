@@ -192,6 +192,8 @@ services:
     command:
       - -c
       - |
+        # Install dependencies from requirements.txt
+        pip install --no-cache-dir -r /opt/airflow/requirements.txt
         if [[ -z "${AIRFLOW_UID}" ]]; then
           echo
           echo -e "\033[1;33mWARNING!!!: AIRFLOW_UID not set!\e[0m"
@@ -256,6 +258,7 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
+      - ./requirements.txt:/opt/airflow/requirements.txt # Add the volume for requirements.txt
 
   airflow-cli:
     <<: *airflow-common
