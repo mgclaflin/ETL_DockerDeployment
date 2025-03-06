@@ -2,10 +2,9 @@
 import os
 import pandas as pd
 import psycopg2
-from airflow.providers.postgres.hooks.postgres import PostgresHook
 from dotenv import load_dotenv
-from logger import logger
-from config import ENV_PATH, RAW_DATA_PATH, CLEAN_DATA_PATH  # Import paths
+from scripts.logger import logger
+from scripts.config import ENV_PATH, RAW_DATA_PATH, CLEAN_DATA_PATH  # Import paths
 
 
 # function to read the clean_data file and return a dataframe
@@ -158,11 +157,8 @@ def delete_raw_data():
 
 
 # execution of functions above and the load process
-print("running load.py")
 
 df = read_clean_data()
-print(df)
-print("read df successfully")
 if df is not None:
     conn = env_db_connection()
     if conn:

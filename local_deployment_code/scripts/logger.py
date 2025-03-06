@@ -1,10 +1,6 @@
-import os
-import logging
-from utils.config import LOG_PATH
 
-# Ensure the logs directory exists
-log_dir = os.path.dirname(LOG_PATH)
-#os.makedirs(log_dir, exist_ok=True)  # Create directory if it doesn't exist
+import logging
+from scripts.config import LOG_PATH
 
 # clear existing handlers to prevent duplicates
 logger = logging.getLogger(__name__)
