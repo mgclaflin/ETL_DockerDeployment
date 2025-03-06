@@ -40,18 +40,16 @@ Before setting up the project, ensure you have the following installed:
    - In the project root, create a `.env` file to store environment variables for your database and API credentials. Example:
 
      ```env
-     AIRFLOW_UID=50000
-     AIRFLOW_GID=50000
-     WEATHER_API_KEY=your_api_key_here
-     POSTGRES_HOST=localhost
-     POSTGRES_USER=weather_user
-     POSTGRES_PASSWORD=weather_password
-     POSTGRES_DB=weather
+     AIRFLOW_UID=1000
      ```
 
 3. **Build and start the containers**:
    - Use Docker Compose to build and start the containers for the project, including Airflow and PostgreSQL.
 
+    ```bash
+     docker-compose up airflow-init
+     ```
+   
      ```bash
      docker-compose up --build
      ```
@@ -64,7 +62,13 @@ Before setting up the project, ensure you have the following installed:
 
 5. **Configure the Weather API**:
    - Sign up for an API key from your chosen weather service (e.g., [OpenWeatherMap](https://openweathermap.org/)).
-   - Set the API key and other configuration details in the `config.py` file or via environment variables.
+   - Determine the Cities that you want to query the API on (cities deliminated by ";")
+   - Set the API key and other configuration details in the `.env` file within the directory /airflow/dags/util/.env .
+
+       ```env
+     API_KEY=your_api_key_here
+     CITIES=Boulder,CO,USA;Houston,TX,USA;Stuttgart,DE  
+     ```
 
 ## Usage
 
