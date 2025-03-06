@@ -5,9 +5,11 @@ from airflow.utils.dates import days_ago
 from datetime import datetime
 import os
 import sys
+import pandas as pd
 from utils.encodings_setup import load_env_api, load_env_cities, encoding, encodings_to_config
 from utils.extract import city_weather_data_extraction, write_raw_data, write_compiled_raw_data
 from utils.transform import read_raw_data, transform_data, write_to_cleaned_data
+from utils.load_Hook import read_clean_data, env_db_connection, get_or_insert_location, get_or_insert_weather, insert_record, insert_alert, delete_clean_data, delete_raw_data
 
 
 
@@ -53,6 +55,43 @@ def transform_data_process():
     write_to_cleaned_data(df, CLEAN_DATA_PATH)
 
 
+# load data process defined
+def load_data_process():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    RAW_DATA_PATH = os.path.join(BASE_DIR, "data", "raw_weather_data.json")
+    CLEAN_DATA_PATH = os.path.join(BASE_DIR, "data", "clean_weather_data.csv")
+    
+    df = read_clean_data(CLEAN_DATA_PATH)
+
+    if df is not None:
+        conn = env_db_connection()
+        if conn:
+            try:
+                with conn.cursor() as cursor:
+                    for _, row in df.iterrows():
+                        location_id = get_or_insert_location(cursor, row['latitude'], row['longitude'], row['city'], row['timezone'], row['timezone_offset'])
+                        weather_id = get_or_insert_weather(cursor, row['weather_id'], row['weather_main'], row['weather_description'])
+                        record_id = insert_record(cursor, location_id, weather_id, row)
+
+                        if pd.notna(row['alerts']) and row['alerts'].strip():
+                            insert_alert(cursor, record_id, row['alerts'])
+                    conn.commit()
+                    print("Data successfully inserted into database")
+                    success = True
+            except Exception as e:
+                conn.rollback()
+                print(f"Error during data insertion {e}")
+                success = False
+            finally:
+                conn.close()
+                print("database connection closed")
+                
+            if success:
+                delete_clean_data(CLEAN_DATA_PATH)
+                delete_raw_data(RAW_DATA_PATH)
+
+
+
 
 dag = DAG(
     'etl_setup_dag',
@@ -84,7 +123,11 @@ transform_data_task = PythonOperator(
 )
 
 # Load Data Task
-    
+load_data_task = PythonOperator(
+    task_id="load_transformed_data",
+    python_callable=load_data_process,
+    dag=dag
+)
 
 # Set Task dependencies
-settup_process_task >> extract_data_task >> transform_data_task
+settup_process_task >> extract_data_task >> transform_data_task >> load_data_task

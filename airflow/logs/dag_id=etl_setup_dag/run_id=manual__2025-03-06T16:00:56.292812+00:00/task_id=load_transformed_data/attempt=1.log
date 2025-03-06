@@ -1,0 +1,241 @@
+[2025-03-06T16:01:17.375+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-06T16:01:17.470+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_setup_dag.load_transformed_data manual__2025-03-06T16:00:56.292812+00:00 [queued]>
+[2025-03-06T16:01:17.485+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_setup_dag.load_transformed_data manual__2025-03-06T16:00:56.292812+00:00 [queued]>
+[2025-03-06T16:01:17.485+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-03-06T16:01:17.513+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_transformed_data> on 2025-03-06 16:00:56.292812+00:00
+[2025-03-06T16:01:17.523+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1138) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-06T16:01:17.525+0000] {standard_task_runner.py:72} INFO - Started process 1140 to run task
+[2025-03-06T16:01:17.528+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_setup_dag', 'load_transformed_data', 'manual__2025-03-06T16:00:56.292812+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpqdlofwn_']
+[2025-03-06T16:01:17.530+0000] {standard_task_runner.py:105} INFO - Job 48: Subtask load_transformed_data
+[2025-03-06T16:01:17.861+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_setup_dag.load_transformed_data manual__2025-03-06T16:00:56.292812+00:00 [running]> on host 4248ae9eea74
+[2025-03-06T16:01:18.005+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_setup_dag' AIRFLOW_CTX_TASK_ID='load_transformed_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-06T16:00:56.292812+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-06T16:00:56.292812+00:00'
+[2025-03-06T16:01:18.006+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-06T16:01:18.049+0000] {logging_mixin.py:190} INFO - Successfully loaded clean data from /opt/***/dags/data/clean_weather_data.csv
+[2025-03-06T16:01:18.049+0000] {logging_mixin.py:190} INFO - Trying to connect with postgres_hook
+[2025-03-06T16:01:18.067+0000] {base.py:84} INFO - Retrieving connection 'postgres_weather_conn'
+[2025-03-06T16:01:18.172+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.174+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.176+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.176+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.177+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.178+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.178+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.179+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.179+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.183+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.183+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.184+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.184+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.185+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.186+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.186+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.187+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.188+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.188+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.189+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.189+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.190+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.190+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.191+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.192+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.193+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.194+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.194+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.194+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.195+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.196+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.196+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.197+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.198+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.199+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.199+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.199+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.200+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.201+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.201+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.202+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.202+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.203+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.203+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.204+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.204+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.206+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.206+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.206+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.207+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.208+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.208+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.209+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.210+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.210+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.211+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.212+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.213+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.214+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.214+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.217+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.217+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.218+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.218+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.219+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.219+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.220+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.220+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.221+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.221+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.222+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.222+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.223+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.223+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.224+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.224+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.225+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.225+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.226+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.226+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.227+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.227+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.228+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.229+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.230+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.230+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.233+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.233+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.234+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.234+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.235+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.235+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.236+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.236+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.237+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.237+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.238+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.238+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.239+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.239+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.240+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.240+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.241+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.241+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.242+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.242+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.243+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.243+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.244+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.244+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.247+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.248+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.249+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.249+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.249+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.250+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.250+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.251+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.251+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.252+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.252+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.253+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.253+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.254+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.254+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.255+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.255+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.256+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.256+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.257+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.257+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.258+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.258+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.259+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.259+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.260+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.260+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.261+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.261+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.262+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.262+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.263+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.263+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.264+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.268+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.268+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.269+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.269+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.270+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.270+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.271+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.271+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.272+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.272+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.273+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.273+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.274+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.274+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.275+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.275+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.276+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.276+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.277+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.277+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.278+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.278+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.279+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.279+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.280+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.280+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.280+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.281+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.282+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.282+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.282+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.283+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.284+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.284+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.284+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.285+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.285+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.286+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.286+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.286+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.287+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.287+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.288+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.288+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.289+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.289+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.290+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.290+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.291+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.291+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.292+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.292+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.295+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.296+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.296+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.297+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.298+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.298+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.298+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.299+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.300+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.300+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.301+0000] {logging_mixin.py:190} INFO - location is already stored in the database
+[2025-03-06T16:01:18.301+0000] {logging_mixin.py:190} INFO - weather is already stored in the database
+[2025-03-06T16:01:18.302+0000] {logging_mixin.py:190} INFO - record has been inserted into the table
+[2025-03-06T16:01:18.302+0000] {logging_mixin.py:190} INFO - Record has been inserted into the table
+[2025-03-06T16:01:18.302+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.303+0000] {logging_mixin.py:190} INFO - alert has been inserted into the table
+[2025-03-06T16:01:18.304+0000] {logging_mixin.py:190} INFO - Data successfully inserted into database
+[2025-03-06T16:01:18.305+0000] {logging_mixin.py:190} INFO - database connection closed
+[2025-03-06T16:01:18.307+0000] {logging_mixin.py:190} INFO - File deleted successfully
+[2025-03-06T16:01:18.309+0000] {logging_mixin.py:190} INFO - Error deleting file /opt/***/dags/data/clean_weather_data.csv: 'builtin_function_or_method' object has no attribute 'info'
+[2025-03-06T16:01:18.311+0000] {logging_mixin.py:190} INFO - File deleted successfully
+[2025-03-06T16:01:18.312+0000] {logging_mixin.py:190} INFO - File /opt/***/dags/data/raw_weather_data.json deleted successfully
+[2025-03-06T16:01:18.312+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-06T16:01:18.329+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-06T16:01:18.329+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=etl_setup_dag, task_id=load_transformed_data, run_id=manual__2025-03-06T16:00:56.292812+00:00, execution_date=20250306T160056, start_date=20250306T160117, end_date=20250306T160118
+[2025-03-06T16:01:18.418+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-06T16:01:18.722+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-06T16:01:18.730+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,33 @@
+[2025-03-06T16:01:05.630+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-06T16:01:05.785+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_setup_dag.extract_write_raw_weather_data manual__2025-03-06T16:00:56.292812+00:00 [queued]>
+[2025-03-06T16:01:05.828+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_setup_dag.extract_write_raw_weather_data manual__2025-03-06T16:00:56.292812+00:00 [queued]>
+[2025-03-06T16:01:05.829+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-03-06T16:01:05.921+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): extract_write_raw_weather_data> on 2025-03-06 16:00:56.292812+00:00
+[2025-03-06T16:01:05.936+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_setup_dag', 'extract_write_raw_weather_data', 'manual__2025-03-06T16:00:56.292812+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmp5ljjp227']
+[2025-03-06T16:01:05.950+0000] {standard_task_runner.py:105} INFO - Job 46: Subtask extract_write_raw_weather_data
+[2025-03-06T16:01:05.949+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1130) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-06T16:01:05.958+0000] {standard_task_runner.py:72} INFO - Started process 1132 to run task
+[2025-03-06T16:01:06.439+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_setup_dag.extract_write_raw_weather_data manual__2025-03-06T16:00:56.292812+00:00 [running]> on host 4248ae9eea74
+[2025-03-06T16:01:06.675+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_setup_dag' AIRFLOW_CTX_TASK_ID='extract_write_raw_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-06T16:00:56.292812+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-06T16:00:56.292812+00:00'
+[2025-03-06T16:01:06.676+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-06T16:01:06.789+0000] {logging_mixin.py:190} INFO - Successfully loaded API key
+[2025-03-06T16:01:07.120+0000] {logging_mixin.py:190} INFO - Successfully fetched weather data for Denver,CO,USA
+[2025-03-06T16:01:07.121+0000] {logging_mixin.py:190} INFO - {'lat': 39.7392, 'lon': -104.9847, 'timezone': 'America/Denver', 'timezone_offset': -25200, 'current': {'dt': 1741276867, 'sunrise': 1741267513, 'sunset': 1741309038, 'temp': 37.54, 'feels_like': 37.54, 'pressure': 1003, 'humidity': 84, 'dew_point': 33.15, 'uvi': 1.84, 'clouds': 55, 'visibility': 10000, 'wind_speed': 1.99, 'wind_deg': 300, 'wind_gust': 3, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04d'}]}, 'City': 'Denver,CO,USA'}
+[2025-03-06T16:01:07.123+0000] {logging_mixin.py:190} INFO - Successfully loaded API key
+[2025-03-06T16:01:07.265+0000] {logging_mixin.py:190} INFO - Successfully fetched weather data for Austin,TX,USA
+[2025-03-06T16:01:07.265+0000] {logging_mixin.py:190} INFO - {'lat': 30.2711, 'lon': -97.7437, 'timezone': 'America/Chicago', 'timezone_offset': -21600, 'current': {'dt': 1741276867, 'sunrise': 1741265478, 'sunset': 1741307599, 'temp': 61.02, 'feels_like': 58.66, 'pressure': 1019, 'humidity': 39, 'dew_point': 35.91, 'uvi': 4.28, 'clouds': 10, 'visibility': 10000, 'wind_speed': 5.99, 'wind_deg': 90, 'wind_gust': 10, 'weather': [{'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'}]}, 'City': 'Austin,TX,USA'}
+[2025-03-06T16:01:07.266+0000] {logging_mixin.py:190} INFO - Successfully loaded API key
+[2025-03-06T16:01:07.629+0000] {logging_mixin.py:190} INFO - Successfully fetched weather data for Stuttgart,DE
+[2025-03-06T16:01:07.630+0000] {logging_mixin.py:190} INFO - {'lat': 48.7823, 'lon': 9.177, 'timezone': 'Europe/Berlin', 'timezone_offset': 3600, 'current': {'dt': 1741276867, 'sunrise': 1741240520, 'sunset': 1741281243, 'temp': 62.55, 'feels_like': 59.92, 'pressure': 1020, 'humidity': 30, 'dew_point': 30.87, 'uvi': 0.22, 'clouds': 0, 'visibility': 10000, 'wind_speed': 6.91, 'wind_deg': 360, 'weather': [{'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'}]}, 'alerts': [{'sender_name': 'Deutscher Wetterdienst', 'event': 'frost', 'start': 1741291200, 'end': 1741334400, 'description': 'There is a risk of frost (level 1 of 2).\nMinimum temperature: > -2 °C; near surface: > -7 °C', 'tags': ['Extreme low temperature']}], 'City': 'Stuttgart,DE'}
+[2025-03-06T16:01:07.637+0000] {logging_mixin.py:190} INFO - Data saved to /opt/***/dags/data/raw_weather_data.json
+[2025-03-06T16:01:07.638+0000] {logging_mixin.py:190} INFO - Weather data successfully saved to /opt/***/dags/data/raw_weather_data.json
+[2025-03-06T16:01:07.654+0000] {logging_mixin.py:190} INFO - Data saved to /opt/***/dags/data/raw_compiled_data.json
+[2025-03-06T16:01:07.656+0000] {logging_mixin.py:190} INFO - Weather data successfully saved to /opt/***/dags/data/raw_compiled_data.json
+[2025-03-06T16:01:07.657+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-06T16:01:07.681+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-06T16:01:07.684+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=etl_setup_dag, task_id=extract_write_raw_weather_data, run_id=manual__2025-03-06T16:00:56.292812+00:00, execution_date=20250306T160056, start_date=20250306T160105, end_date=20250306T160107
+[2025-03-06T16:01:07.844+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-06T16:01:08.600+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-06T16:01:08.604+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
