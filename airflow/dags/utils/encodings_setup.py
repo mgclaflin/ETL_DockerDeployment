@@ -96,23 +96,3 @@ def encodings_to_config(encodings, CITIES_CONFIG_PATH):
     except:
         print(f"Error writing to config file: {e}")
         raise
-
-try:
-    # executing the defined functions above 
-    print("running encodings_setup.py")
-    ENV_PATH = os.path.join(BASE_DIR, "utils", ".env")
-    CITIES_CONFIG_PATH = os.path.join(BASE_DIR, "utils", "cities_config.json")
-    api_key = load_env_api(ENV_PATH)
-    print("api loading should be correct: "+ api_key)
-    cities = load_env_cities()
-    print("cities should have loaded")
-    print(cities)
-    encodings = encoding(api_key, cities)
-    print("encodings should have run")
-    print(encodings)
-    encodings_to_config(encodings,CITIES_CONFIG_PATH)
-    print("should have writtent to the cities config file")
-    print("encodings_setup.py file has been executed")
-    print("\n")
-except Exception as e:
-    print(f"Pipeline execution failed at encodings: {e}")

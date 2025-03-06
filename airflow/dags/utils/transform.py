@@ -8,23 +8,23 @@ from config import RAW_DATA_PATH, CLEAN_DATA_PATH  # Import paths
 
 
 # reading the raw data from the raw_weather_data.json file
-def read_raw_data():
+def read_raw_data(RAW_DATA_PATH):
     
     try:
         with open(RAW_DATA_PATH, 'r') as json_file:
             data = json.load(json_file)
-        logger.info(f"Successfully loaded raw weather data from {RAW_DATA_PATH}")
+        print(f"Successfully loaded raw weather data from {RAW_DATA_PATH}")
         return data
     except FileNotFoundError:
         print(f"Error: the file '{RAW_DATA_PATH}' does not exist")
-        logger.error(f"Error: the file {RAW_DATA_PATH} does not exist")
+        print(f"Error: the file {RAW_DATA_PATH} does not exist")
         return None
     except json.jSONDecodeError as e:
         print(f"Error: failed to decode JSON frim the file '{RAW_DATA_PATH}'")
-        logger.error(f"Error: failed to decode JSON from the file {RAW_DATA_PATH}: {e}")
+        print(f"Error: failed to decode JSON from the file {RAW_DATA_PATH}: {e}")
         return None
     except Exception as e:
-        logger.error(f"Unexpected error while reading raw data: {e}")
+        print(f"Unexpected error while reading raw data: {e}")
         return None
 
 # Function to convert Unix timestamp to local time
@@ -33,13 +33,13 @@ def convert_to_local_time(timestamp, offset):
         utc_time = datetime.utcfromtimestamp(timestamp)
         return utc_time + timedelta(seconds=offset)
     except Exception as e:
-        logger.error(f"Error converting timestamp {timestamp} with offset {offset}: {e}")
+        print(f"Error converting timestamp {timestamp} with offset {offset}: {e}")
         return None
 
 # processing & cleaning the weather data & storing in a dataframe
 def transform_data(weather_data):
     if not weather_data:
-        logger.error("No data provided for transformation")
+        print("No data provided for transformation")
         return None
     
     # Initialize an empty list to store records
@@ -111,20 +111,20 @@ def transform_data(weather_data):
 
         # Create a DataFrame from the data list
         df = pd.DataFrame(data)
-        logger.info("Successfully transformed weather data into DataFrame")
+        print("Successfully transformed weather data into DataFrame")
         return df
     except KeyError as e:
-        logger.error(f"Missing expected key in weather data: {e}")
+        print(f"Missing expected key in weather data: {e}")
         return None
     except Exception as e:
-        logger.erorr(f"Unexpected error during transformation: {e}")
+        print(f"Unexpected error during transformation: {e}")
         return None
 
 
 # writing the cleaned data to the compiled clean_weather_data.csv file
-def write_to_cleaned_data(df):
+def write_to_cleaned_data(df, CLEAN_DATA_PATH):
     if df is None or df.empty:
-        logger.error("No data available to write to CSV")
+        print("No data available to write to CSV")
         return
 
     try:
@@ -141,25 +141,7 @@ def write_to_cleaned_data(df):
             df.to_csv(CLEAN_DATA_PATH, index=False)
 
         print(f"Data saved to {CLEAN_DATA_PATH}")
-        logger.info(f"Data successfully saved to {CLEAN_DATA_PATH}")
+        print(f"Data successfully saved to {CLEAN_DATA_PATH}")
     except Exception as e:
-        logger.error(f"Error writing data to CSV: {e}")
+        print(f"Error writing data to CSV: {e}")
 
-
-try:
-    print("executing transform.py")
-    # execution of the transformation functions
-    data = read_raw_data()
-    print("confirming if read_raw_data was successful")
-    print(data)
-    print("\n")
-    print("data transformation")
-    df = transform_data(data)
-    print("confirming if data transformation was successful")
-    print(df)
-    print("\n")
-    print("writing to clean data")
-    write_to_cleaned_data(df)
-    print("confirming if that run successfully")
-except Exception as e:
-    logger.critical(f"Pipeline execution failed at transfrom.py script: {e}")

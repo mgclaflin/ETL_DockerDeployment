@@ -3,12 +3,10 @@ import os
 import json
 import requests
 from dotenv import load_dotenv
-from logger import logger
-from config import ENV_PATH, CITIES_CONFIG_PATH, RAW_DATA_PATH, RAW_COMPILED_PATH  # Import paths
 
 
 # loading environment variables (API key)
-def load_env_api():
+def load_env_api(ENV_PATH):
     try:
         # load envrionment variables from the .env file
         load_dotenv(ENV_PATH)
@@ -16,10 +14,10 @@ def load_env_api():
         api_key = os.getenv("API_KEY")
         if not api_key:
             raise ValueError("API_KEY is missing in the env variables")
-        logger.info("Successfully loaded API key")
+        print("Successfully loaded API key")
         return api_key
     except Exception as e:
-        logger.error(f"Error loading API key: {e}")
+        print(f"Error loading API key: {e}")
         raise
 
 # function to execute the API call
@@ -49,38 +47,38 @@ def get_weather(api_key, city, lat, lon, exclude='minutely,daily,hourly', units=
         data = response.json()
         # Print or process the data
         data['City']=city
-        logger.info(f"Successfully fetched weather data for {city}")
+        print(f"Successfully fetched weather data for {city}")
         print(data)
         return data
     except requests.exceptions.RequestException as e:
         print(f"Error: {response.status_code}, {response.text}")
-        logger.error(f"Error fetching data from {api_url}: {e}")
+        print(f"Error fetching data from {api_url}: {e}")
     except json.JSONDecodeError as e:
-        logger.error(f"Failed to decode JSON response for {city}: {e}")
+        print(f"Failed to decode JSON response for {city}: {e}")
     return None
     
 
 # function to run the API call based upon cities in config file
-def city_weather_data_extraction():
+def city_weather_data_extraction(CITIES_CONFIG_PATH, ENV_PATH):
     try:
         # Step 1: Load the config file
         with open(CITIES_CONFIG_PATH, 'r') as f:
             config_data = json.load(f)
     except (IOError, json.JSONDecodeError) as e:
-        logger.error(f"Error loading cities config file: {e}")
+        print(f"Error loading cities config file: {e}")
         raise
 
     weather_data = []
 
     # Step 2: Loop through each city and use the data for API requests
     for city in config_data['cities']:
-        api_key = load_env_api()
+        api_key = load_env_api(ENV_PATH)
         latitude = city['latitude']
         longitude = city['longitude']
         city_name = city['name']
         
         if not all([city_name,latitude,longitude]):
-            logger.warning(f"skipping city due to missing data: {city}")
+            print(f"skipping city due to missing data: {city}")
             continue
 
         weather_data.append(get_weather(api_key, city_name, latitude, longitude))
@@ -88,7 +86,7 @@ def city_weather_data_extraction():
     return weather_data
 
 # writing the extracted data to the raw_weather_data.json file
-def write_raw_data(weather_data):
+def write_raw_data(weather_data, RAW_DATA_PATH):
 
     try:
         #ensure the directory exists
@@ -110,14 +108,14 @@ def write_raw_data(weather_data):
                 json.dump(weather_data, json_file, indent=4)
 
         print(f"Data saved to {RAW_DATA_PATH}")
-        logger.info(f"Weather data successfully saved to {RAW_DATA_PATH}")
+        print(f"Weather data successfully saved to {RAW_DATA_PATH}")
     except (IOError, json.JSONDecodeError, ValueError) as e:
-        logger.error(f"Error writing to {RAW_FILE_PATH}: {e}")
+        print(f"Error writing to {RAW_DATA_PATH}: {e}")
         raise
 
     
 # writing the extracted data to the raw_compiled_data.json file
-def write_compiled_raw_data(weather_data):
+def write_compiled_raw_data(weather_data, RAW_COMPILED_PATH):
     
     try:
         # Check if the file exists to decide whether to append or create new
@@ -136,24 +134,8 @@ def write_compiled_raw_data(weather_data):
                 json.dump(weather_data, json_file, indent=4)
 
         print(f"Data saved to {RAW_COMPILED_PATH}")
-        logger.info(f"Weather data successfully saved to {RAW_COMPILED_PATH}")
+        print(f"Weather data successfully saved to {RAW_COMPILED_PATH}")
     except (IOError, json.JSONDecodeError, ValueError) as e:
-        logger.error(f"Error writing to {RAW_COMPILED_PATH}: {e}")
+        print(f"Error writing to {RAW_COMPILED_PATH}: {e}")
         raise
 
-
-try:
-    # executing the api calls & writing to the file functions
-    print("running extract.py")
-    weather_data = city_weather_data_extraction()
-    print("confirming if weather extraction was successful")
-    print("\n")
-    print(weather_data)
-    print("\n")
-    write_raw_data(weather_data)
-    print("writing of raw data should be successful")
-    print("\n")
-    write_compiled_raw_data(weather_data)
-    print("wirting of compiled data should be successful")
-except Exception as e:
-    logger.critical(f"Pipeline extraction failed at extract.py: {e}")
