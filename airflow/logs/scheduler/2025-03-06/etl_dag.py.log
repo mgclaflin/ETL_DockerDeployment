@@ -2971,3 +2971,21 @@ NameError: name 'CLEAN_DATA_PATH' is not defined
 [2025-03-06T16:04:59.481+0000] {processor.py:186} INFO - Started process (PID=2011) to work on /opt/airflow/dags/etl_dag.py
 [2025-03-06T16:04:59.492+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etl_dag.py for tasks to queue
 [2025-03-06T16:04:59.494+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:04:59.493+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:05:01.850+0000] {processor.py:925} INFO - DAG(s) 'etl_setup_dag' retrieved from /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:05:02.013+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:05:02.012+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T16:05:02.037+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:05:02.036+0000] {dag.py:4180} INFO - Setting next_dagrun for etl_setup_dag to None, run_after=None
+[2025-03-06T16:05:02.073+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etl_dag.py took 2.619 seconds
+[2025-03-06T16:05:32.958+0000] {processor.py:186} INFO - Started process (PID=2021) to work on /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:05:32.962+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etl_dag.py for tasks to queue
+[2025-03-06T16:05:32.963+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:05:32.962+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:05:33.415+0000] {processor.py:925} INFO - DAG(s) 'etl_setup_dag' retrieved from /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:05:33.436+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:05:33.435+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T16:05:33.449+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:05:33.449+0000] {dag.py:4180} INFO - Setting next_dagrun for etl_setup_dag to None, run_after=None
+[2025-03-06T16:05:33.465+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etl_dag.py took 0.512 seconds
+[2025-03-06T16:06:04.249+0000] {processor.py:186} INFO - Started process (PID=2031) to work on /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:06:04.264+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etl_dag.py for tasks to queue
+[2025-03-06T16:06:04.266+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:06:04.266+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:06:06.140+0000] {processor.py:925} INFO - DAG(s) 'etl_setup_dag' retrieved from /opt/airflow/dags/etl_dag.py
+[2025-03-06T16:06:06.328+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:06:06.327+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-06T16:06:06.351+0000] {logging_mixin.py:190} INFO - [2025-03-06T16:06:06.350+0000] {dag.py:4180} INFO - Setting next_dagrun for etl_setup_dag to None, run_after=None
+[2025-03-06T16:06:06.394+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etl_dag.py took 2.157 seconds
