@@ -1,83 +1,119 @@
-# WeatherETLPipeline
+Weather ETL Pipeline
+This project demonstrates an ETL (Extract, Transform, Load) pipeline that collects weather data from an API, processes it, and stores it in a PostgreSQL database for later analysis. The pipeline is automated to run regularly, updating the database with fresh weather data at specified intervals. This project utilizes Apache Airflow for scheduling and Docker for containerization, making it easy to deploy and manage.
 
-Here’s a template for your **Weather ETL Pipeline** project README file:
+Project Overview
+The main goal of this project is to showcase data engineering skills, including:
 
----
+Extracting data from an API (Weather API)
+Transforming data into the desired format
+Loading the data into a PostgreSQL database
+Automating the ETL process with Apache Airflow for scheduling
+Containerizing the entire application using Docker for portability and ease of deployment
+Features
+Data Extraction: Weather data is fetched from a public weather API (e.g., OpenWeatherMap).
+Data Transformation: Data is cleaned and transformed to fit the schema of the PostgreSQL database.
+Data Loading: Transformed data is inserted into a PostgreSQL database for storage.
+Automation: The ETL process is automated and scheduled using Apache Airflow.
+Containerization: The project is containerized using Docker to ensure consistent environments across different systems.
+Prerequisites
+Before setting up the project, ensure you have the following installed:
 
-# Weather ETL Pipeline
+Docker and Docker Compose for containerization and orchestration.
+Python 3.x
+PostgreSQL database (either locally or using a Docker container).
+Access to a weather API (e.g., OpenWeatherMap, WeatherAPI)
+Required Python libraries (listed below)
+Installation
+Clone the repository:
 
-This project demonstrates an **ETL (Extract, Transform, Load)** pipeline that collects weather data from an API, processes it, and stores it in a **PostgreSQL** database for later analysis. The pipeline is automated to run regularly, updating the database with fresh weather data at specified intervals.
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/weather-etl-pipeline.git
+cd weather-etl-pipeline
+Set up Docker containers:
 
-## Project Overview
+Ensure Docker and Docker Compose are installed.
 
-The main goal of this project is to showcase **data engineering** skills, including:
-- Extracting data from an API (Weather API)
-- Transforming data into the desired format
-- Loading the data into a **PostgreSQL** database
-- Automating the ETL process with scheduling
+In the project root, create a .env file to store environment variables for your database and API credentials. Example:
 
-## Features
-- **Data Extraction**: Weather data is fetched from a public weather API (e.g., OpenWeatherMap).
-- **Data Transformation**: Data is cleaned and transformed to fit the schema of the PostgreSQL database.
-- **Data Loading**: Transformed data is inserted into a PostgreSQL database for storage.
-- **Automation**: The ETL process runs regularly to keep the weather data up-to-date.
+env
+Copy
+Edit
+AIRFLOW_UID=50000
+AIRFLOW_GID=50000
+WEATHER_API_KEY=your_api_key_here
+POSTGRES_HOST=localhost
+POSTGRES_USER=weather_user
+POSTGRES_PASSWORD=weather_password
+POSTGRES_DB=weather
+Build and start the containers:
 
-## Prerequisites
+Use Docker Compose to build and start the containers for the project, including Airflow and PostgreSQL.
 
-- Python 3.x
-- PostgreSQL database
-- Access to a weather API (e.g., OpenWeatherMap, WeatherAPI)
-- Required Python libraries (listed below)
+bash
+Copy
+Edit
+docker-compose up --build
+This will start Airflow, PostgreSQL, and any other necessary services defined in the docker-compose.yml.
 
-## Installation
+Set up PostgreSQL database:
 
-1. **Clone the repository**:
+Airflow will automatically handle the creation of the necessary tables when the DAG runs.
+Alternatively, you can manually create the database and tables by running the schema.sql script if needed.
+Configure the Weather API:
 
+Sign up for an API key from your chosen weather service (e.g., OpenWeatherMap).
+Set the API key and other configuration details in the config.py file or via environment variables.
+Usage
+Running the ETL Pipeline with Airflow
+Start the Airflow Web UI:
 
-2. **Set up a Python virtual environment**:
+Once the containers are running, you can access the Airflow web UI at http://localhost:8080.
+Log in using the default credentials (airflow / airflow or custom ones from .env).
+Running the ETL Process:
 
+Airflow will automatically pick up the defined DAGs (ETL workflows). The pipeline will run at the scheduled intervals.
+You can manually trigger the DAG from the Airflow UI if you want to run it immediately.
+Viewing the Data:
 
-4. **Install dependencies**:
+After the ETL process runs, data will be stored in the PostgreSQL database.
+You can query the data using SQL in a tool like pgAdmin or via the psql command line.
+Automating the ETL Process
+The ETL process is scheduled to run automatically at specified intervals using Apache Airflow. You can modify the DAG scheduling settings as per your requirements.
+Dependencies
+Apache Airflow: For scheduling and automating the ETL pipeline.
+requests: For making HTTP requests to the weather API.
+psycopg2: For PostgreSQL database interaction.
+pandas: For data manipulation and transformation.
+dotenv: For loading environment variables (API keys, DB credentials).
+SQLAlchemy: For database connection handling with Airflow.
+To install the dependencies, including Airflow and the necessary Python packages, run:
 
-
-5. **Set up PostgreSQL database**:
-   - Create a PostgreSQL database and note down the connection credentials.
-   - Run the SQL script to create the required tables: schema.sql
-
-
-6. **Configure the Weather API**:
-   - Sign up for an API key from your chosen weather service (e.g., [OpenWeatherMap](https://openweathermap.org/)).
-   - Set the API key and other configuration details in `config.py`.
-
-
-## Usage
-
-1. **Running the ETL Pipeline**:
-   - To run the entire ETL pipeline manually:
-     ```bash
-     python src/etl_pipeline.py
-     ```
-
-2. **Automating the ETL Process**:
-   - Use **cron** (Linux/macOS) or **Task Scheduler** (Windows) to run the pipeline at regular intervals (e.g., every 10 minutes).
-   - Example cron job to run every minute for the next 10 minutes:
-     ```bash
-     * * * * * /usr/bin/python3 /path/to/etl_pipeline.py
-     ```
-
-3. **Viewing the Data**:
-   - After the ETL process runs, data will be stored in the PostgreSQL database.
-   - You can query the data using SQL to analyze the weather patterns.
-
-## Dependencies
-
-- `requests`: For making HTTP requests to the weather API.
-- `psycopg2`: For PostgreSQL database interaction.
-- `pandas`: For data manipulation and transformation.
-- `schedule`: For scheduling the ETL process.
-- `dotenv`: For loading environment variables (API keys, DB credentials).
-
-You can install all dependencies by running:
-```bash
+bash
+Copy
+Edit
 pip install -r requirements.txt
-```
+Alternatively, Docker Compose will install dependencies in the Airflow container automatically when you bring the services up.
+
+Docker Commands
+To start the services (Airflow, PostgreSQL, etc.):
+
+bash
+Copy
+Edit
+docker-compose up
+To shut down the services:
+
+bash
+Copy
+Edit
+docker-compose down
+To rebuild the containers (after making changes to Dockerfiles or docker-compose.yml):
+
+bash
+Copy
+Edit
+docker-compose up --build
+Conclusion
+This project demonstrates how to build a scalable, automated weather ETL pipeline using Apache Airflow for scheduling and Docker for deployment. With the ability to extract, transform, and load weather data into a PostgreSQL database, the project showcases essential data engineering practices in a real-world scenario.
