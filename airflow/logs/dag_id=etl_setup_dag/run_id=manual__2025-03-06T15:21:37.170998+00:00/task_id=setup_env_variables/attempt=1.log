@@ -1,0 +1,33 @@
+[2025-03-06T15:21:39.068+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-06T15:21:39.096+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_setup_dag.setup_env_variables manual__2025-03-06T15:21:37.170998+00:00 [queued]>
+[2025-03-06T15:21:39.105+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_setup_dag.setup_env_variables manual__2025-03-06T15:21:37.170998+00:00 [queued]>
+[2025-03-06T15:21:39.106+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-03-06T15:21:39.132+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): setup_env_variables> on 2025-03-06 15:21:37.170998+00:00
+[2025-03-06T15:21:39.147+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=561) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-06T15:21:39.149+0000] {standard_task_runner.py:72} INFO - Started process 563 to run task
+[2025-03-06T15:21:39.152+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_setup_dag', 'setup_env_variables', 'manual__2025-03-06T15:21:37.170998+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmp7bpife08']
+[2025-03-06T15:21:39.155+0000] {standard_task_runner.py:105} INFO - Job 29: Subtask setup_env_variables
+[2025-03-06T15:21:39.384+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_setup_dag.setup_env_variables manual__2025-03-06T15:21:37.170998+00:00 [running]> on host 4248ae9eea74
+[2025-03-06T15:21:39.438+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_setup_dag' AIRFLOW_CTX_TASK_ID='setup_env_variables' AIRFLOW_CTX_EXECUTION_DATE='2025-03-06T15:21:37.170998+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-06T15:21:37.170998+00:00'
+[2025-03-06T15:21:39.439+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-06T15:21:39.454+0000] {logging_mixin.py:190} INFO - Successfully loaded API_KEY
+[2025-03-06T15:21:39.455+0000] {logging_mixin.py:190} INFO - Successfully loaded 3 cities.
+[2025-03-06T15:21:39.516+0000] {logging_mixin.py:190} INFO - Retrieved coordinate for Denver,CO,USA: (39.7392, -104.9847)
+[2025-03-06T15:21:39.517+0000] {logging_mixin.py:190} INFO - City: Denver,CO,USA - Latitude: 39.7392, Longitude: -104.9847
+[2025-03-06T15:21:39.518+0000] {warnings.py:112} WARNING - /opt/***/dags/utils/encodings_setup.py:74: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  encodings = pd.concat([encodings, new_row], ignore_index=True)
+
+[2025-03-06T15:21:39.577+0000] {logging_mixin.py:190} INFO - Retrieved coordinate for Austin,TX,USA: (30.2711, -97.7437)
+[2025-03-06T15:21:39.578+0000] {logging_mixin.py:190} INFO - City: Austin,TX,USA - Latitude: 30.2711, Longitude: -97.7437
+[2025-03-06T15:21:39.624+0000] {logging_mixin.py:190} INFO - Retrieved coordinate for Stuttgart,DE: (48.7823, 9.177)
+[2025-03-06T15:21:39.625+0000] {logging_mixin.py:190} INFO - City: Stuttgart,DE - Latitude: 48.7823, Longitude: 9.177
+[2025-03-06T15:21:39.627+0000] {logging_mixin.py:190} INFO - Successfully wrote city encodings to cities_config.json
+[2025-03-06T15:21:39.628+0000] {logging_mixin.py:190} INFO - Data has been written to cities_config.json
+[2025-03-06T15:21:39.628+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-06T15:21:39.636+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-06T15:21:39.637+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=etl_setup_dag, task_id=setup_env_variables, run_id=manual__2025-03-06T15:21:37.170998+00:00, execution_date=20250306T152137, start_date=20250306T152139, end_date=20250306T152139
+[2025-03-06T15:21:39.691+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-06T15:21:39.855+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-06T15:21:39.856+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

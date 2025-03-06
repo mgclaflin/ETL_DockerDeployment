@@ -3,9 +3,6 @@ import os
 import json
 import pandas as pd
 from datetime import datetime, timedelta
-from logger import logger
-from config import RAW_DATA_PATH, CLEAN_DATA_PATH  # Import paths
-
 
 # reading the raw data from the raw_weather_data.json file
 def read_raw_data(RAW_DATA_PATH):

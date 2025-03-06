@@ -28,7 +28,7 @@ def setup_process():
 
 
 # extract data process defined
-def extract_data():
+def extract_data_process():
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -42,7 +42,7 @@ def extract_data():
     write_compiled_raw_data(weather_data, RAW_COMPILED_PATH)
 
 # transform data process defined
-def transform_data():
+def transform_data_process():
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     RAW_DATA_PATH = os.path.join(BASE_DIR, "data", "raw_weather_data.json")
@@ -72,14 +72,19 @@ settup_process_task = PythonOperator(
 # Extract Data Task
 extract_data_task = PythonOperator(
     task_id="extract_write_raw_weather_data",
-    python_callable=extract_data,
+    python_callable=extract_data_process,
     dag=dag
 )
 
 # Transform Data Task
+transform_data_task = PythonOperator(
+    task_id="transform_write_data",
+    python_callable=transform_data_process,
+    dag=dag
+)
 
 # Load Data Task
     
 
 # Set Task dependencies
-settup_process_task >> extract_data_task
+settup_process_task >> extract_data_task >> transform_data_task
